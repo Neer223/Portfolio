@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FileText, Pen, Award, Mail, Phone, MapPin, ChevronRight, BookOpen, Users, Linkedin, Github, Twitter, Calendar, Building2, Send, Mic, PartyPopper, Settings, Edit3, Trophy, Target, CheckCircle2, Star, Zap } from 'lucide-react';
+import profileImage from './assets/neerr.jpeg';
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('home');
@@ -98,29 +99,39 @@ export default function Portfolio() {
 
   const achievements = [
     {
+      icon: Trophy,
       title: "Event Hosting Excellence",
       description: "Successfully hosted 3 events, 2 seminars and 1 webinar",
-      detail: "Led anchoring and moderation for technical fests and academic seminars"
+      detail: "Led anchoring and moderation for technical fests and academic seminars",
+      color: "bg-purple-600"
     },
     {
+      icon: Users,
       title: "Alumni Meet 2025",
       description: "Managed Alumni Meet 2025 as Management Lead",
-      detail: "Oversaw complete event management including logistics and guest coordination"
+      detail: "Oversaw complete event management including logistics and guest coordination",
+      color: "bg-blue-600"
     },
     {
+      icon: Target,
       title: "Team Coordination",
       description: "Coordinated event teams and volunteers for successful completion",
-      detail: "Managed cross-functional teams ensuring seamless event execution"
+      detail: "Managed cross-functional teams ensuring seamless event execution",
+      color: "bg-green-600"
     },
     {
+      icon: Edit3,
       title: "Content Creation",
       description: "Written numerous contents, articles and short stories on online platforms",
-      detail: "Published creative works on Wattpad and other writing platforms"
+      detail: "Published creative works on Wattpad and other writing platforms",
+      color: "bg-orange-600"
     },
     {
+      icon: Star,
       title: "Reader Engagement",
       description: "3K+ reads across all published works",
-      detail: "Built a steady readership through consistent quality content"
+      detail: "Built a steady readership through consistent quality content",
+      color: "bg-pink-600"
     }
   ];
 
@@ -142,35 +153,30 @@ export default function Portfolio() {
     setFormStatus('sending');
     
     const formData = new FormData(e.target);
-    const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      subject: formData.get('subject'),
-      message: formData.get('message')
-    };
 
     try {
-      // Using Web3Forms - Free email API
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '43062d9a-a4bb-44aa-88de-6118433b02c3', // You'll need to get this from web3forms.com
-          name: data.name,
-          email: data.email,
-          subject: data.subject,
-          message: data.message,
-          to: 'nirajdubey2305@gmail.com'
+          access_key: '43062d9a-a4bb-44aa-88de-6118433b02c3',
+          name: formData.get('name'),
+          email: formData.get('email'),
+          subject: formData.get('subject'),
+          message: formData.get('message')
         })
       });
 
-      if (response.ok) {
+      const result = await response.json();
+      
+      if (result.success) {
         setFormStatus('success');
         e.target.reset();
         setTimeout(() => setFormStatus(''), 5000);
       } else {
+        console.error('Form submission error:', result);
         setFormStatus('error');
         setTimeout(() => setFormStatus(''), 5000);
       }
@@ -219,7 +225,7 @@ export default function Portfolio() {
             <div className="relative w-full max-w-md flex items-center justify-center">
               <div className="w-96 h-96 rounded-full overflow-hidden border-8 border-white shadow-2xl">
                 <img 
-                  src="./src/assets/neerr.jpeg" 
+                  src={profileImage}
                   alt="Neeraj Kumar" 
                   className="w-full h-full object-cover"
                 />
@@ -606,7 +612,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Achievements Section - Simplified Design */}
+      {/* Achievements Section - Card Design */}
       <section className="py-20 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
@@ -614,30 +620,33 @@ export default function Portfolio() {
             <div className="w-24 h-1 bg-orange-500 mx-auto mt-6"></div>
           </div>
 
-          <div className="space-y-6">
-            {achievements.map((achievement, idx) => (
-              <div
-                key={idx}
-                className="bg-gray-800 rounded-xl p-6 border-l-4 border-orange-500 hover:bg-gray-750 transition-all duration-300"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 mt-1">
-                    <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      {achievement.title}
-                    </h3>
-                    <p className="text-gray-300 mb-2 leading-relaxed">
-                      {achievement.description}
-                    </p>
-                    <p className="text-gray-500 text-sm italic">
-                      {achievement.detail}
-                    </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {achievements.map((achievement, idx) => {
+              const IconComponent = achievement.icon;
+              return (
+                <div
+                  key={idx}
+                  className="group bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-orange-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20"
+                >
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className={`w-14 h-14 ${achievement.color} rounded-xl flex items-center justify-center flex-shrink-0 shadow-md`}>
+                      <IconComponent className="w-7 h-7 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                        {achievement.title}
+                      </h3>
+                      <p className="text-gray-300 leading-relaxed mb-2">
+                        {achievement.description}
+                      </p>
+                      <p className="text-gray-500 text-sm italic leading-relaxed">
+                        {achievement.detail}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -853,8 +862,6 @@ export default function Portfolio() {
                   {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
-
-              
             </div>
           </div>
 
