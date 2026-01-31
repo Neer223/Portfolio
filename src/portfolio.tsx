@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FileText, Pen, Award, Mail, Phone, MapPin, ChevronRight, BookOpen, Users, Linkedin, Github, Twitter, Calendar, Building2, Send, Mic, PartyPopper, Settings, Edit3, Trophy, Target, CheckCircle2, Star, Zap } from 'lucide-react';
-import profileImage from './assets/neerr.jpeg';
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('home');
@@ -151,7 +150,7 @@ export default function Portfolio() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('sending');
-    
+
     const formData = new FormData(e.target);
 
     try {
@@ -170,7 +169,7 @@ export default function Portfolio() {
       });
 
       const result = await response.json();
-      
+
       if (result.success) {
         setFormStatus('success');
         e.target.reset();
@@ -205,9 +204,8 @@ export default function Portfolio() {
                   setActiveSection(item.toLowerCase());
                   document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`text-sm font-medium transition-all duration-300 hover:text-orange-500 ${
-                  activeSection === item.toLowerCase() ? 'text-orange-500 border-b-2 border-orange-500' : 'text-gray-600'
-                }`}
+                className={`text-sm font-medium transition-all duration-300 hover:text-orange-500 ${activeSection === item.toLowerCase() ? 'text-orange-500 border-b-2 border-orange-500' : 'text-gray-600'
+                  }`}
               >
                 {item}
               </button>
@@ -224,9 +222,9 @@ export default function Portfolio() {
             {/* Profile Photo */}
             <div className="relative w-full max-w-md flex items-center justify-center">
               <div className="w-96 h-96 rounded-full overflow-hidden border-8 border-white shadow-2xl">
-                <img 
-                  src={profileImage}
-                  alt="Neeraj Kumar" 
+                <img
+                  src="/neerr.jpeg"
+                  alt="Neeraj Kumar"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -297,92 +295,92 @@ export default function Portfolio() {
             <div className="flex justify-center items-center">
               <svg className="w-full max-w-lg h-auto" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Desk */}
-                <rect x="100" y="450" width="400" height="20" fill="#4B5563" rx="4"/>
-                <rect x="80" y="470" width="440" height="100" fill="#374151" rx="8"/>
-                
+                <rect x="100" y="450" width="400" height="20" fill="#4B5563" rx="4" />
+                <rect x="80" y="470" width="440" height="100" fill="#374151" rx="8" />
+
                 {/* Computer Monitor */}
-                <rect x="250" y="300" width="250" height="180" fill="#1F2937" rx="8"/>
-                <rect x="265" y="315" width="220" height="150" fill="#111827" rx="4"/>
-                
+                <rect x="250" y="300" width="250" height="180" fill="#1F2937" rx="8" />
+                <rect x="265" y="315" width="220" height="150" fill="#111827" rx="4" />
+
                 {/* Screen content - animated text lines */}
                 <g className="animate-pulse">
-                  <rect x="280" y="335" width="120" height="8" fill="#F97316" rx="3" opacity="0.9"/>
-                  <rect x="280" y="355" width="180" height="8" fill="#F97316" rx="3" opacity="0.7"/>
-                  <rect x="280" y="375" width="90" height="8" fill="#F97316" rx="3" opacity="0.8"/>
-                  <rect x="280" y="395" width="160" height="8" fill="#F97316" rx="3" opacity="0.6"/>
-                  <rect x="280" y="415" width="140" height="8" fill="#F97316" rx="3" opacity="0.9"/>
-                  <rect x="280" y="435" width="100" height="8" fill="#F97316" rx="3" opacity="0.7"/>
+                  <rect x="280" y="335" width="120" height="8" fill="#F97316" rx="3" opacity="0.9" />
+                  <rect x="280" y="355" width="180" height="8" fill="#F97316" rx="3" opacity="0.7" />
+                  <rect x="280" y="375" width="90" height="8" fill="#F97316" rx="3" opacity="0.8" />
+                  <rect x="280" y="395" width="160" height="8" fill="#F97316" rx="3" opacity="0.6" />
+                  <rect x="280" y="415" width="140" height="8" fill="#F97316" rx="3" opacity="0.9" />
+                  <rect x="280" y="435" width="100" height="8" fill="#F97316" rx="3" opacity="0.7" />
                 </g>
-                
+
                 {/* Monitor stand */}
-                <rect x="355" y="480" width="40" height="40" fill="#1F2937"/>
-                <rect x="330" y="510" width="90" height="10" fill="#1F2937" rx="5"/>
-                
+                <rect x="355" y="480" width="40" height="40" fill="#1F2937" />
+                <rect x="330" y="510" width="90" height="10" fill="#1F2937" rx="5" />
+
                 {/* Person sitting */}
                 {/* Head */}
-                <circle cx="180" cy="280" r="50" fill="#F97316"/>
-                
+                <circle cx="180" cy="280" r="50" fill="#F97316" />
+
                 {/* Body */}
-                <ellipse cx="180" cy="370" rx="70" ry="90" fill="#1F2937"/>
-                
+                <ellipse cx="180" cy="370" rx="70" ry="90" fill="#1F2937" />
+
                 {/* Arms typing */}
-                <path d="M110 340 Q80 360, 100 390" stroke="#F97316" strokeWidth="25" strokeLinecap="round"/>
-                <path d="M250 340 Q280 360, 260 390" stroke="#F97316" strokeWidth="25" strokeLinecap="round"/>
-                
+                <path d="M110 340 Q80 360, 100 390" stroke="#F97316" strokeWidth="25" strokeLinecap="round" />
+                <path d="M250 340 Q280 360, 260 390" stroke="#F97316" strokeWidth="25" strokeLinecap="round" />
+
                 {/* Keyboard */}
-                <rect x="150" y="480" width="150" height="50" fill="#4B5563" rx="4"/>
+                <rect x="150" y="480" width="150" height="50" fill="#4B5563" rx="4" />
                 <g>
-                  <rect x="160" y="490" width="20" height="15" fill="#6B7280" rx="2"/>
-                  <rect x="185" y="490" width="20" height="15" fill="#6B7280" rx="2"/>
-                  <rect x="210" y="490" width="20" height="15" fill="#6B7280" rx="2"/>
-                  <rect x="235" y="490" width="20" height="15" fill="#6B7280" rx="2"/>
-                  <rect x="260" y="490" width="20" height="15" fill="#6B7280" rx="2"/>
+                  <rect x="160" y="490" width="20" height="15" fill="#6B7280" rx="2" />
+                  <rect x="185" y="490" width="20" height="15" fill="#6B7280" rx="2" />
+                  <rect x="210" y="490" width="20" height="15" fill="#6B7280" rx="2" />
+                  <rect x="235" y="490" width="20" height="15" fill="#6B7280" rx="2" />
+                  <rect x="260" y="490" width="20" height="15" fill="#6B7280" rx="2" />
                 </g>
-                
+
                 {/* Coffee cup */}
-                <ellipse cx="420" cy="485" rx="25" ry="8" fill="#B45309"/>
-                <rect x="395" y="485" width="50" height="60" fill="#DC2626" rx="4"/>
-                <ellipse cx="420" cy="485" rx="25" ry="8" fill="#DC2626"/>
-                <path d="M445 500 Q465 500, 465 520 Q465 535, 445 535" stroke="#DC2626" strokeWidth="5" fill="none"/>
-                
+                <ellipse cx="420" cy="485" rx="25" ry="8" fill="#B45309" />
+                <rect x="395" y="485" width="50" height="60" fill="#DC2626" rx="4" />
+                <ellipse cx="420" cy="485" rx="25" ry="8" fill="#DC2626" />
+                <path d="M445 500 Q465 500, 465 520 Q465 535, 445 535" stroke="#DC2626" strokeWidth="5" fill="none" />
+
                 {/* Steam from coffee - animated */}
                 <g className="animate-pulse" opacity="0.6">
-                  <path d="M410 470 Q410 450, 405 440" stroke="#9CA3AF" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                  <path d="M420 465 Q420 445, 425 435" stroke="#9CA3AF" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                  <path d="M430 470 Q430 450, 435 440" stroke="#9CA3AF" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                  <path d="M410 470 Q410 450, 405 440" stroke="#9CA3AF" strokeWidth="3" fill="none" strokeLinecap="round" />
+                  <path d="M420 465 Q420 445, 425 435" stroke="#9CA3AF" strokeWidth="3" fill="none" strokeLinecap="round" />
+                  <path d="M430 470 Q430 450, 435 440" stroke="#9CA3AF" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </g>
-                
+
                 {/* Notebook and pen */}
-                <rect x="90" y="480" width="80" height="100" fill="#F97316" rx="4"/>
-                <line x1="100" y1="495" x2="160" y2="495" stroke="#FCD34D" strokeWidth="3"/>
-                <line x1="100" y1="510" x2="155" y2="510" stroke="#FCD34D" strokeWidth="3"/>
-                <line x1="100" y1="525" x2="160" y2="525" stroke="#FCD34D" strokeWidth="3"/>
-                <line x1="100" y1="540" x2="150" y2="540" stroke="#FCD34D" strokeWidth="3"/>
-                
+                <rect x="90" y="480" width="80" height="100" fill="#F97316" rx="4" />
+                <line x1="100" y1="495" x2="160" y2="495" stroke="#FCD34D" strokeWidth="3" />
+                <line x1="100" y1="510" x2="155" y2="510" stroke="#FCD34D" strokeWidth="3" />
+                <line x1="100" y1="525" x2="160" y2="525" stroke="#FCD34D" strokeWidth="3" />
+                <line x1="100" y1="540" x2="150" y2="540" stroke="#FCD34D" strokeWidth="3" />
+
                 {/* Pen */}
-                <g className="animate-bounce" style={{transformOrigin: '55px 490px', animationDuration: '2s'}}>
-                  <rect x="50" y="485" width="10" height="70" fill="#1F2937" rx="4"/>
-                  <polygon points="55,555 50,565 60,565" fill="#F97316"/>
+                <g className="animate-bounce" style={{ transformOrigin: '55px 490px', animationDuration: '2s' }}>
+                  <rect x="50" y="485" width="10" height="70" fill="#1F2937" rx="4" />
+                  <polygon points="55,555 50,565 60,565" fill="#F97316" />
                 </g>
-                
+
                 {/* Floating elements - ideas */}
                 <g className="animate-pulse" opacity="0.7">
-                  <circle cx="120" cy="180" r="8" fill="#F97316"/>
-                  <circle cx="220" cy="150" r="6" fill="#F97316"/>
-                  <circle cx="180" cy="120" r="10" fill="#F97316"/>
-                  
+                  <circle cx="120" cy="180" r="8" fill="#F97316" />
+                  <circle cx="220" cy="150" r="6" fill="#F97316" />
+                  <circle cx="180" cy="120" r="10" fill="#F97316" />
+
                   {/* Light bulb - idea */}
-                  <circle cx="180" cy="100" r="30" fill="#F97316" opacity="0.3"/>
-                  <circle cx="180" cy="100" r="20" fill="#FCD34D"/>
-                  <rect x="170" y="115" width="20" height="15" fill="#9CA3AF" rx="2"/>
-                  <line x1="175" y1="130" x2="185" y2="130" stroke="#9CA3AF" strokeWidth="3"/>
+                  <circle cx="180" cy="100" r="30" fill="#F97316" opacity="0.3" />
+                  <circle cx="180" cy="100" r="20" fill="#FCD34D" />
+                  <rect x="170" y="115" width="20" height="15" fill="#9CA3AF" rx="2" />
+                  <line x1="175" y1="130" x2="185" y2="130" stroke="#9CA3AF" strokeWidth="3" />
                 </g>
-                
+
                 {/* Sparkles */}
                 <g className="animate-pulse" opacity="0.5">
-                  <path d="M480 200 L485 210 L490 200 L485 190 Z" fill="#F97316"/>
-                  <path d="M520 350 L523 356 L526 350 L523 344 Z" fill="#F97316"/>
-                  <path d="M70 250 L74 258 L78 250 L74 242 Z" fill="#F97316"/>
+                  <path d="M480 200 L485 210 L490 200 L485 190 Z" fill="#F97316" />
+                  <path d="M520 350 L523 356 L526 350 L523 344 Z" fill="#F97316" />
+                  <path d="M70 250 L74 258 L78 250 L74 242 Z" fill="#F97316" />
                 </g>
               </svg>
             </div>
@@ -402,8 +400,8 @@ export default function Portfolio() {
             {contentExperiences.map((exp, idx) => {
               const IconComponent = exp.icon;
               return (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="group bg-gray-800 rounded-3xl p-8 shadow-2xl hover:shadow-orange-500/30 transition-all duration-500 border border-gray-700 hover:border-orange-500/50 hover:-translate-y-2"
                 >
                   {/* Header with icon */}
@@ -471,8 +469,8 @@ export default function Portfolio() {
       </section>
 
       {/* Proficiency Section */}
-      <section 
-        id="proficiency" 
+      <section
+        id="proficiency"
         ref={proficiencyRef}
         className="min-h-screen flex items-center py-20 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
       >
@@ -507,42 +505,42 @@ export default function Portfolio() {
               <svg className="w-full max-w-lg h-auto" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Person silhouette leaning on laptop */}
                 {/* Laptop */}
-                <rect x="200" y="220" width="200" height="140" fill="#374151" rx="8"/>
-                <rect x="150" y="350" width="300" height="20" fill="#4B5563" rx="4"/>
-                
+                <rect x="200" y="220" width="200" height="140" fill="#374151" rx="8" />
+                <rect x="150" y="350" width="300" height="20" fill="#4B5563" rx="4" />
+
                 {/* Screen */}
-                <rect x="210" y="230" width="180" height="120" fill="#1F2937" rx="4"/>
-                <rect x="220" y="240" width="160" height="100" fill="#111827" rx="2"/>
-                
+                <rect x="210" y="230" width="180" height="120" fill="#1F2937" rx="4" />
+                <rect x="220" y="240" width="160" height="100" fill="#111827" rx="2" />
+
                 {/* Code lines on screen with orange color */}
                 <g className="animate-pulse">
-                  <rect x="230" y="255" width="80" height="6" fill="#F97316" rx="2" opacity="0.9"/>
-                  <rect x="230" y="270" width="120" height="6" fill="#F97316" rx="2" opacity="0.7"/>
-                  <rect x="230" y="285" width="60" height="6" fill="#F97316" rx="2" opacity="0.8"/>
-                  <rect x="230" y="300" width="140" height="6" fill="#F97316" rx="2" opacity="0.6"/>
-                  <rect x="230" y="315" width="100" height="6" fill="#F97316" rx="2" opacity="0.9"/>
+                  <rect x="230" y="255" width="80" height="6" fill="#F97316" rx="2" opacity="0.9" />
+                  <rect x="230" y="270" width="120" height="6" fill="#F97316" rx="2" opacity="0.7" />
+                  <rect x="230" y="285" width="60" height="6" fill="#F97316" rx="2" opacity="0.8" />
+                  <rect x="230" y="300" width="140" height="6" fill="#F97316" rx="2" opacity="0.6" />
+                  <rect x="230" y="315" width="100" height="6" fill="#F97316" rx="2" opacity="0.9" />
                 </g>
-                
+
                 {/* Person leaning */}
-                <circle cx="120" cy="180" r="40" fill="#F97316"/>
-                <ellipse cx="120" cy="240" rx="50" ry="70" fill="#F97316"/>
-                
+                <circle cx="120" cy="180" r="40" fill="#F97316" />
+                <ellipse cx="120" cy="240" rx="50" ry="70" fill="#F97316" />
+
                 {/* Arm pointing */}
-                <path d="M160 220 L200 240" stroke="#F97316" strokeWidth="20" strokeLinecap="round"/>
-                <circle cx="200" cy="240" r="12" fill="#F97316"/>
-                
+                <path d="M160 220 L200 240" stroke="#F97316" strokeWidth="20" strokeLinecap="round" />
+                <circle cx="200" cy="240" r="12" fill="#F97316" />
+
                 {/* Thought bubbles */}
                 <g className="animate-pulse" opacity="0.7">
-                  <circle cx="80" cy="120" r="20" fill="#F97316" opacity="0.3"/>
-                  <circle cx="60" cy="140" r="12" fill="#F97316" opacity="0.3"/>
-                  <circle cx="45" cy="155" r="8" fill="#F97316" opacity="0.3"/>
+                  <circle cx="80" cy="120" r="20" fill="#F97316" opacity="0.3" />
+                  <circle cx="60" cy="140" r="12" fill="#F97316" opacity="0.3" />
+                  <circle cx="45" cy="155" r="8" fill="#F97316" opacity="0.3" />
                 </g>
-                
+
                 {/* Floating sparkles */}
                 <g className="animate-pulse" opacity="0.6">
-                  <circle cx="420" cy="180" r="4" fill="#F97316"/>
-                  <circle cx="450" cy="220" r="5" fill="#F97316"/>
-                  <circle cx="380" cy="260" r="4" fill="#F97316"/>
+                  <circle cx="420" cy="180" r="4" fill="#F97316" />
+                  <circle cx="450" cy="220" r="5" fill="#F97316" />
+                  <circle cx="380" cy="260" r="4" fill="#F97316" />
                 </g>
               </svg>
             </div>
@@ -739,7 +737,7 @@ export default function Portfolio() {
             {/* Left Side - Contact Information */}
             <div>
               <h3 className="text-3xl font-bold text-white mb-8">Contact Information</h3>
-              
+
               <div className="space-y-6 mb-12">
                 <div className="flex items-start gap-4">
                   <div className="w-14 h-14 bg-orange-500 bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0">
@@ -794,7 +792,7 @@ export default function Portfolio() {
             {/* Right Side - Message Form */}
             <div>
               <h3 className="text-3xl font-bold text-white mb-8">Send Me a Message</h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-white text-sm font-medium mb-2">Your Name</label>
