@@ -100,7 +100,7 @@ export default function Portfolio() {
     {
       icon: Trophy,
       title: "Event Hosting Excellence",
-      description: "Successfully hosted 3 events, 2 seminars and 1 webinar",
+      description: "Successfully hosted 10+ events, 6 seminars and 2 webinars",
       detail: "Led anchoring and moderation for technical fests and academic seminars",
       color: "bg-purple-600"
     },
@@ -706,9 +706,9 @@ export default function Portfolio() {
               <h4 className="text-lg font-bold text-white mb-4">Academic Achievements</h4>
               <div className="space-y-3">
                 {[
-                  'Finalist (5th Position) at Code of Phoenix Hackathon, IIIT Naya Raipur – February 2025',
-                  'Finalist (8th Position) at Level SuperMind Hackathon – January 2025',
-                  'Selected as a Contributor for GirlScript Summer of Code (GSSoC) Summer 2024'
+                  'Managed Content Team at Alumni Cell,as Team Lead – June 2024 to Present',
+                  'Got 2nd Position in College Speech Competition – March 2024',
+                  'Handled Social Media for TechFest 2023, increasing engagement by 30% – April 2025',
                 ].map((achievement, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="w-6 h-6 bg-orange-500 bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
